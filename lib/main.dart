@@ -1,5 +1,7 @@
+import 'package:fdb_spotify/screens/artist_profile_screen.dart';
 import 'package:fdb_spotify/screens/home_screen.dart';
 import 'package:fdb_spotify/screens/music_screen.dart';
+import 'package:fdb_spotify/screens/profile_screen.dart';
 import 'package:fdb_spotify/widgets/homeScreenWidgets/banner.dart';
 import 'package:fdb_spotify/widgets/homeScreenWidgets/song.dart';
 import 'package:fdb_spotify/widgets/musicScreenWidgets/nowPlayingTop.dart';
@@ -19,7 +21,7 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             theme: ThemeData(),
             title: 'Material App',
-            home: musicScreen());
+            home: artistProfileScreen());
       },
     );
   }

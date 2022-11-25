@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-class playlistWidget extends StatefulWidget {
-  const playlistWidget({super.key});
+class artistSongsWidget extends StatefulWidget {
+  const artistSongsWidget({super.key});
 
   @override
-  State<playlistWidget> createState() => _playlistWidgetState();
+  State<artistSongsWidget> createState() => artistSongsWidgetState();
 }
 
-class _playlistWidgetState extends State<playlistWidget> {
+class artistSongsWidgetState extends State<artistSongsWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(9),
+      margin: EdgeInsets.only(bottom: 10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -29,16 +29,16 @@ class _playlistWidgetState extends State<playlistWidget> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "As It Was",
-                style: TextStyle(fontWeight: FontWeight.bold),
+                "Dont Smile At me",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
               ),
               SizedBox(
                 height: 1.h,
               ),
-              Text("Harry Styles")
+              Text("Billie Eilish")
             ],
           ),
-          const Spacer(),
+          Spacer(),
           IconButton(onPressed: () {}, icon: Icon(Icons.favorite))
         ],
       ),
