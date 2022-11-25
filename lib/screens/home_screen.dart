@@ -1,8 +1,11 @@
+import 'package:fdb_spotify/provider/releases_provider.dart';
+import 'package:fdb_spotify/service/releases_service.dart';
 import 'package:fdb_spotify/widgets/homeScreenWidgets/banner.dart';
 import 'package:fdb_spotify/widgets/homeScreenWidgets/playlist.dart';
 import 'package:fdb_spotify/widgets/homeScreenWidgets/searchTop.dart';
 import 'package:fdb_spotify/widgets/homeScreenWidgets/song.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class homeScreen extends StatefulWidget {
@@ -13,13 +16,21 @@ class homeScreen extends StatefulWidget {
 }
 
 class _homeScreenState extends State<homeScreen> {
+  ReleasesProvider? releasesData;
+
   @override
+  void initState() {
+    Provider.of<ReleasesProvider>(context, listen: false).getReleasesData();
+    super.initState();
+  }
+
   List<String> menuTexts = [
     "News",
     "Video",
     "Artist",
     "Podcast"
   ]; //news video artist podcast
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
@@ -58,16 +69,30 @@ class _homeScreenState extends State<homeScreen> {
                         },
                       ),
                     ),
-                    Container(
-                        width: double.infinity,
-                        height: 25.h,
-                        child: ListView.builder(
-                            itemCount: 3,
-                            shrinkWrap: true,
-                            scrollDirection: Axis.horizontal,
-                            itemBuilder: (context, index) {
-                              return songWidget();
-                            })),
+                    Consumer(
+                      builder: (context, ReleasesProvider value, child) {
+                        return SizedBox(
+                            width: double.infinity,
+                            height: 25.h,
+                            child: value.isReleasesDataLoaded == false
+                                ? Container()
+                                : ListView.builder(
+                                    itemCount: value
+                                        .releasesData!.albums!.items!.length,
+                                    shrinkWrap: true,
+                                    scrollDirection: Axis.horizontal,
+                                    itemBuilder: (context, index) {
+                                      return songWidget(
+                                        songImage:
+                                            '${value.releasesData!.albums!.items![index].images![0].url}',
+                                        songName:
+                                            '${value.releasesData!.albums!.items![index].artists![0].name}',
+                                        songer:
+                                            '${value.releasesData!.albums!.items![index].name}',
+                                      );
+                                    }));
+                      },
+                    ),
                     const SizedBox(
                       height: 25,
                     ),

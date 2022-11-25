@@ -2,7 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class songWidget extends StatefulWidget {
-  const songWidget({super.key});
+  final String songImage;
+  final String songName;
+  final String songer;
+  const songWidget(
+      {super.key,
+      required this.songImage,
+      required this.songName,
+      required this.songer});
 
   @override
   State<songWidget> createState() => _songWidgetState();
@@ -24,20 +31,26 @@ class _songWidgetState extends State<songWidget> {
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   image: DecorationImage(
-                      image: AssetImage("assets/im_songer_pic.png"),
+                      image: NetworkImage(widget.songImage),
                       fit: BoxFit.contain)),
             ),
             Container(
+              width: 25.w,
               margin: EdgeInsets.only(left: 6),
               child: Text(
-                "Song Name",
-                style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                widget.songName,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(fontSize: 15.5, fontWeight: FontWeight.bold),
               ),
             ),
             Container(
+              width: 25.w,
               margin: EdgeInsets.only(left: 6),
               child: Text(
-                "Songer",
+                widget.songer,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
                 style: TextStyle(fontSize: 15),
               ),
             ),

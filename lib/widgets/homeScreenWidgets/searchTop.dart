@@ -1,3 +1,4 @@
+import 'package:fdb_spotify/service/releases_service.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -16,7 +17,9 @@ class _searchWidgetState extends State<searchWidget> {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         IconButton(
-            onPressed: () {},
+            onPressed: () {
+              getReleasesService();
+            },
             icon: Icon(
               Icons.search,
             )),
