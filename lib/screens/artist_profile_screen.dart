@@ -1,7 +1,7 @@
-import 'package:fdb_spotify/widgets/artistProfile/artist_songs.dart';
-import 'package:fdb_spotify/widgets/artistProfile/artist_banner.dart';
-import 'package:fdb_spotify/widgets/artistProfile/artist_info.dart';
-import 'package:fdb_spotify/widgets/artistProfile/artist_albums.dart';
+import 'package:fdb_spotify/widgets/artistProfileScreenWidgets/artist_songs.dart';
+import 'package:fdb_spotify/widgets/artistProfileScreenWidgets/artist_banner.dart';
+import 'package:fdb_spotify/widgets/artistProfileScreenWidgets/artist_info.dart';
+import 'package:fdb_spotify/widgets/artistProfileScreenWidgets/artist_albums.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
