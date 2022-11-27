@@ -1,21 +1,26 @@
+import 'package:fdb_spotify/providers/releases_provider.dart';
+import 'package:fdb_spotify/service/playlist_service.dart';
+import 'package:fdb_spotify/service/releases_service.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-class songWidget extends StatefulWidget {
-  final String songImage;
-  final String songName;
+class AlbumWidget extends StatefulWidget {
+  final String albumImage;
+  final String albumName;
   final String songer;
-  const songWidget(
-      {super.key,
-      required this.songImage,
-      required this.songName,
-      required this.songer});
+
+  const AlbumWidget({
+    super.key,
+    required this.albumImage,
+    required this.albumName,
+    required this.songer,
+  });
 
   @override
-  State<songWidget> createState() => _songWidgetState();
+  State<AlbumWidget> createState() => _AlbumWidget();
 }
 
-class _songWidgetState extends State<songWidget> {
+class _AlbumWidget extends State<AlbumWidget> {
   @override
   Widget build(BuildContext context) {
     return Stack(children: [
@@ -31,14 +36,14 @@ class _songWidgetState extends State<songWidget> {
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   image: DecorationImage(
-                      image: NetworkImage(widget.songImage),
+                      image: NetworkImage(widget.albumImage),
                       fit: BoxFit.contain)),
             ),
             Container(
               width: 25.w,
               margin: EdgeInsets.only(left: 6),
               child: Text(
-                widget.songName,
+                widget.albumName,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(fontSize: 15.5, fontWeight: FontWeight.bold),

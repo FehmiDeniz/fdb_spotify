@@ -16,7 +16,7 @@ class _bannerWidgetState extends State<bannerWidget> {
       height: 17.h,
       decoration: BoxDecoration(
           color: const Color(0xff42C83C),
-          borderRadius: BorderRadius.circular(30)),
+          borderRadius: BorderRadius.circular(5.h)),
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
         child: Column(
@@ -28,7 +28,7 @@ class _bannerWidgetState extends State<bannerWidget> {
               height: 3.h,
               child: Text(
                 "New Album",
-                style: TextStyle(color: Colors.white, fontSize: 15),
+                style: TextStyle(color: Colors.white, fontSize: 16.sp),
               ),
             ),
             SizedBox(
@@ -38,7 +38,7 @@ class _bannerWidgetState extends State<bannerWidget> {
                 "Happier Than Ever",
                 style: TextStyle(
                     color: Colors.white,
-                    fontSize: 22,
+                    fontSize: 20.sp,
                     fontWeight: FontWeight.w500),
               ),
             ),
@@ -47,7 +47,7 @@ class _bannerWidgetState extends State<bannerWidget> {
               height: 3.h,
               child: Text(
                 "Bille Eilish",
-                style: TextStyle(color: Colors.white, fontSize: 16),
+                style: TextStyle(color: Colors.white, fontSize: 16.sp),
               ),
             )
           ],

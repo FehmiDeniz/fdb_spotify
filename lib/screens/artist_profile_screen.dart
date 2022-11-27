@@ -12,6 +12,7 @@ class artistProfileScreen extends StatefulWidget {
   State<artistProfileScreen> createState() => _artistProfileScreenState();
 }
 
+//ses yok mu A:SDAS:DAD
 class _artistProfileScreenState extends State<artistProfileScreen> {
   @override
   Widget build(BuildContext context) {

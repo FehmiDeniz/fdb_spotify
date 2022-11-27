@@ -1,9 +1,11 @@
-import 'package:fdb_spotify/provider/releases_provider.dart';
+import 'package:fdb_spotify/models/playlist_model.dart';
+import 'package:fdb_spotify/providers/playlist_provider.dart';
+import 'package:fdb_spotify/providers/releases_provider.dart';
 import 'package:fdb_spotify/service/releases_service.dart';
 import 'package:fdb_spotify/widgets/homeScreenWidgets/banner.dart';
 import 'package:fdb_spotify/widgets/homeScreenWidgets/playlist.dart';
 import 'package:fdb_spotify/widgets/homeScreenWidgets/searchTop.dart';
-import 'package:fdb_spotify/widgets/homeScreenWidgets/song.dart';
+import 'package:fdb_spotify/widgets/homeScreenWidgets/album.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -17,10 +19,14 @@ class homeScreen extends StatefulWidget {
 
 class _homeScreenState extends State<homeScreen> {
   ReleasesProvider? releasesData;
+  PlaylistProvider? playlistData;
 
   @override
   void initState() {
     Provider.of<ReleasesProvider>(context, listen: false).getReleasesData();
+    playlistData = Provider.of<PlaylistProvider>(context, listen: false);
+    playlistData!.getPlaylistData(id);
+
     super.initState();
   }
 
@@ -30,6 +36,7 @@ class _homeScreenState extends State<homeScreen> {
     "Artist",
     "Podcast"
   ]; //news video artist podcast
+  String id = "0TnOYISbd1XYRBk9myaseg";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -82,13 +89,26 @@ class _homeScreenState extends State<homeScreen> {
                                     shrinkWrap: true,
                                     scrollDirection: Axis.horizontal,
                                     itemBuilder: (context, index) {
-                                      return songWidget(
-                                        songImage:
-                                            '${value.releasesData!.albums!.items![index].images![0].url}',
-                                        songName:
-                                            '${value.releasesData!.albums!.items![index].artists![0].name}',
-                                        songer:
-                                            '${value.releasesData!.albums!.items![index].name}',
+                                      return GestureDetector(
+                                        onTap: () {
+                                          id = value.releasesData!.albums!
+                                              .items![index].artists![0].id
+                                              .toString();
+                                          // print("ID: "+id);
+                                          playlistData!.getPlaylistData(id);
+                                          // Provider.of<PlaylistProvider>(context,
+                                          //         listen: false)
+                                          //     .getPlaylistData(id);
+                                          // print(id);
+                                        },
+                                        child: AlbumWidget(
+                                          albumImage:
+                                              '${value.releasesData!.albums!.items![index].images![0].url}',
+                                          albumName:
+                                              '${value.releasesData!.albums!.items![index].artists![0].name}',
+                                          songer:
+                                              '${value.releasesData!.albums!.items![index].name}',
+                                        ),
                                       );
                                     }));
                       },
@@ -114,16 +134,33 @@ class _homeScreenState extends State<homeScreen> {
                         ),
                       ],
                     ),
-                    Container(
-                        width: double.infinity,
-                        height: 35.h,
-                        child: ListView.builder(
-                            shrinkWrap: false,
-                            padding: EdgeInsets.only(top: 8),
-                            itemCount: 4,
-                            itemBuilder: (context, index) {
-                              return playlistWidget();
-                            }))
+                    Consumer(
+                      builder: (context, PlaylistProvider value, child) {
+                        return SizedBox(
+                            width: double.infinity,
+                            height: 35.h,
+                            child: value.isPlaylistDataLoaded == false
+                                ? Container()
+                                : ListView.builder(
+                                    shrinkWrap: false,
+                                    itemCount: 10,
+                                    itemBuilder: (context, index) {
+                                      return playlistWidget(
+                                        artistName: value
+                                            .playlistData!
+                                            .tracks![index]
+                                            .album!
+                                            .artists![0]
+                                            .name
+                                            .toString(),
+                                        id: '',
+                                        songName: value
+                                            .playlistData!.tracks![index].name
+                                            .toString(),
+                                      );
+                                    }));
+                      },
+                    )
                   ],
                 ),
               ),

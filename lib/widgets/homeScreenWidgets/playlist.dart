@@ -2,7 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class playlistWidget extends StatefulWidget {
-  const playlistWidget({super.key});
+  final String songName;
+  final String artistName;
+  final String id;
+  const playlistWidget(
+      {super.key,
+      required this.songName,
+      required this.artistName,
+      required this.id});
 
   @override
   State<playlistWidget> createState() => _playlistWidgetState();
@@ -29,13 +36,20 @@ class _playlistWidgetState extends State<playlistWidget> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "As It Was",
+                widget.artistName,
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
               SizedBox(
                 height: 1.h,
               ),
-              Text("Harry Styles")
+              Container(
+                width: 32.h,
+                child: Text(
+                  widget.songName,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              )
             ],
           ),
           const Spacer(),

@@ -1,10 +1,13 @@
-import 'package:fdb_spotify/provider/releases_provider.dart';
+import 'package:fdb_spotify/providers/playlist_provider.dart';
+import 'package:fdb_spotify/providers/profile_playlist_provider.dart';
+import 'package:fdb_spotify/providers/releases_provider.dart';
+import 'package:fdb_spotify/providers/users_provider.dart';
 import 'package:fdb_spotify/screens/artist_profile_screen.dart';
 import 'package:fdb_spotify/screens/home_screen.dart';
 import 'package:fdb_spotify/screens/music_screen.dart';
 import 'package:fdb_spotify/screens/profile_screen.dart';
 import 'package:fdb_spotify/widgets/homeScreenWidgets/banner.dart';
-import 'package:fdb_spotify/widgets/homeScreenWidgets/song.dart';
+import 'package:fdb_spotify/widgets/homeScreenWidgets/album.dart';
 import 'package:fdb_spotify/widgets/musicScreenWidgets/nowPlayingTop.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -14,6 +17,15 @@ void main() {
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider(
       create: (context) => ReleasesProvider(),
+    ),
+    ChangeNotifierProvider(
+      create: (context) => PlaylistProvider(),
+    ),
+    ChangeNotifierProvider(
+      create: (context) => UsersProvider(),
+    ),
+    ChangeNotifierProvider(
+      create: (context) => ProfilePlaylistProvider(),
     )
   ], child: MyApp()));
 }
