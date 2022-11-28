@@ -14,27 +14,25 @@ class _nowPlayTopWidgetState extends State<nowPlayTopWidget> {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Container(
-          width: 10.w,
-          height: 10.w,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: Colors.grey.withOpacity(0.5),
-          ),
-          child: IconButton(
-            onPressed: () {},
-            icon: Icon(
-              Icons.keyboard_arrow_left_outlined,
-              size: 20,
-            ),
+        IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(
+            Icons.keyboard_arrow_left_outlined,
+            size: 26.sp,
           ),
         ),
         Text(
           "Now Playing",
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
-        Icon(Icons.more_vert)
+        Icon(
+          Icons.more_vert,
+          size: 24.sp,
+        )
       ],
     );
   }

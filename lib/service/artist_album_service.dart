@@ -15,7 +15,7 @@ Future<ArtistAlbumModel> getArtistAlbumService(String id) async {
   var params = {
     'include_groups': 'single,appears_on',
     'market': 'TR',
-    'limit': '10',
+    'limit': '20',
     'offset': '0',
   };
   var query = params.entries.map((p) => '${p.key}=${p.value}').join('&');
@@ -25,6 +25,6 @@ Future<ArtistAlbumModel> getArtistAlbumService(String id) async {
   if (res.statusCode != 200) {
     throw Exception('http.get error: statusCode= ${res.statusCode}');
   }
-  print(res.body);
+
   return ArtistAlbumModel.fromJson(jsonDecode(res.body));
 }

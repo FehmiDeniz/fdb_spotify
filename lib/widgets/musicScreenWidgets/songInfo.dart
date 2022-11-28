@@ -20,44 +20,54 @@ class songInfoWidget extends StatefulWidget {
 class _songInfoWidgetState extends State<songInfoWidget> {
   @override
   Widget build(BuildContext context) {
-    return Stack(
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
           width: 100.w,
           height: 60.h,
           decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage(
+                  image: NetworkImage(
                     widget.songImage,
                   ),
                   fit: BoxFit.cover),
               borderRadius: BorderRadius.circular(30)),
         ),
-        Positioned(
-          bottom: 10,
-          left: 20,
-          child: Column(
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Text(
-                widget.songName,
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    width: 75.w,
+                    height: 5.h,
+                    child: Text(
+                      widget.songName,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                          fontSize: 18.sp,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black),
+                    ),
+                  ),
+                  Text(
+                    widget.artistName,
+                    style: TextStyle(color: Colors.blueGrey, fontSize: 17.sp),
+                  ),
+                ],
               ),
-              SizedBox(
-                height: 1.h,
-              ),
-              Text(
-                widget.artistName,
-                style: TextStyle(color: Colors.grey, fontSize: 17),
-              ),
+              Spacer(),
+              IconButton(onPressed: () {}, icon: Icon(Icons.favorite_outline))
             ],
           ),
         ),
-        Positioned(
-            bottom: 10,
-            right: 10,
-            child: IconButton(
-                onPressed: () {}, icon: Icon(Icons.favorite_outline)))
       ],
     );
   }

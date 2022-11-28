@@ -25,7 +25,7 @@ class _buttonsWidgetState extends State<buttonsWidget> {
             onPressed: () {},
             icon: Icon(
               Icons.play_arrow,
-              size: 40,
+              size: 30.sp,
               color: Colors.white,
             ),
           ),

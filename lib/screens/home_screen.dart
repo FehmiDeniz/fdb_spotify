@@ -158,6 +158,7 @@ class _homeScreenState extends State<homeScreen> {
                                         songName: value
                                             .playlistData!.tracks![index].name
                                             .toString(),
+                                        root: index,
                                       );
                                     }));
                       },
