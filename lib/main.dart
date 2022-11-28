@@ -1,3 +1,4 @@
+import 'package:fdb_spotify/providers/artist_album_provider.dart';
 import 'package:fdb_spotify/providers/playlist_provider.dart';
 import 'package:fdb_spotify/providers/profile_playlist_provider.dart';
 import 'package:fdb_spotify/providers/releases_provider.dart';
@@ -26,6 +27,9 @@ void main() {
     ),
     ChangeNotifierProvider(
       create: (context) => ProfilePlaylistProvider(),
+    ),
+    ChangeNotifierProvider(
+      create: (context) => ArtistAlbumProvider(),
     )
   ], child: MyApp()));
 }

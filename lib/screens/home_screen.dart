@@ -1,6 +1,7 @@
 import 'package:fdb_spotify/models/playlist_model.dart';
 import 'package:fdb_spotify/providers/playlist_provider.dart';
 import 'package:fdb_spotify/providers/releases_provider.dart';
+import 'package:fdb_spotify/service/artist_album_service.dart';
 import 'package:fdb_spotify/service/releases_service.dart';
 import 'package:fdb_spotify/widgets/homeScreenWidgets/banner.dart';
 import 'package:fdb_spotify/widgets/homeScreenWidgets/playlist.dart';
@@ -94,7 +95,7 @@ class _homeScreenState extends State<homeScreen> {
                                           id = value.releasesData!.albums!
                                               .items![index].artists![0].id
                                               .toString();
-                                          // print("ID: "+id);
+                                          print("ID: " + id);
                                           playlistData!.getPlaylistData(id);
                                           // Provider.of<PlaylistProvider>(context,
                                           //         listen: false)
@@ -153,7 +154,7 @@ class _homeScreenState extends State<homeScreen> {
                                             .artists![0]
                                             .name
                                             .toString(),
-                                        id: '',
+                                        id: id,
                                         songName: value
                                             .playlistData!.tracks![index].name
                                             .toString(),

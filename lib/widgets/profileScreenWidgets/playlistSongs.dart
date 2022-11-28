@@ -24,8 +24,8 @@ class _playlistSongWidgetState extends State<playlistSongWidget> {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Container(
-            width: 13.w,
-            height: 13.w,
+            width: 15.w,
+            height: 15.w,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 image:

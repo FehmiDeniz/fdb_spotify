@@ -66,8 +66,8 @@ class _profileTopWidgetState extends State<profileTopWidget> {
                   SizedBox(
                     height: 1.5.h,
                   ),
-                  // Text(value.usersData!.email!,
-                  //     style: TextStyle(fontStyle: FontStyle.italic)),
+                  Text(value.usersData!.email ?? "fehmideniz06@gmail.com",
+                      style: TextStyle(fontStyle: FontStyle.italic)),
                   SizedBox(
                     height: 1.5.h,
                   ), //usermail

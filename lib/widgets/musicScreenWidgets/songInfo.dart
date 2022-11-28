@@ -4,7 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class songInfoWidget extends StatefulWidget {
-  const songInfoWidget({super.key});
+  const songInfoWidget(
+      {super.key,
+      required this.songImage,
+      required this.songName,
+      required this.artistName});
+  final String songImage;
+  final String songName;
+  final String artistName;
 
   @override
   State<songInfoWidget> createState() => _songInfoWidgetState();
@@ -21,7 +28,7 @@ class _songInfoWidgetState extends State<songInfoWidget> {
           decoration: BoxDecoration(
               image: DecorationImage(
                   image: AssetImage(
-                    "assets/im_songer_pic2.png",
+                    widget.songImage,
                   ),
                   fit: BoxFit.cover),
               borderRadius: BorderRadius.circular(30)),
@@ -33,14 +40,14 @@ class _songInfoWidgetState extends State<songInfoWidget> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Bad Guy",
+                widget.songName,
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               SizedBox(
                 height: 1.h,
               ),
               Text(
-                "Billie Eilish",
+                widget.artistName,
                 style: TextStyle(color: Colors.grey, fontSize: 17),
               ),
             ],

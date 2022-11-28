@@ -1,4 +1,8 @@
+import 'package:fdb_spotify/screens/artist_profile_screen.dart';
+import 'package:fdb_spotify/screens/music_screen.dart';
+import 'package:fdb_spotify/service/artist_album_service.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class playlistWidget extends StatefulWidget {
@@ -16,6 +20,9 @@ class playlistWidget extends StatefulWidget {
 }
 
 class _playlistWidgetState extends State<playlistWidget> {
+  String get id => "4aawyAB9vmqN3uQ7FjRGTy";
+
+  @override
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -26,7 +33,13 @@ class _playlistWidgetState extends State<playlistWidget> {
         children: [
           InkWell(
               onTap: () {
-                //incoming
+                getArtistAlbumService(id);
+                print(widget.id);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => musicScreen(),
+                    ));
               },
               child: Image.asset("assets/ic_play.png")),
           SizedBox(

@@ -21,7 +21,7 @@ class _artistBannerWidgetState extends State<artistBannerWidget> {
                   bottomLeft: Radius.circular(40),
                   bottomRight: Radius.circular(40)),
               image: DecorationImage(
-                  image: AssetImage("assets/im_songer_bg.png"), //songer Image
+                  image: AssetImage("assets/im_pp.png"), //songer Image
                   fit: BoxFit.fill)),
         ),
         Positioned(
@@ -35,7 +35,9 @@ class _artistBannerWidgetState extends State<artistBannerWidget> {
               color: Colors.grey.withOpacity(0.2),
             ),
             child: IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pop(context);
+              },
               icon: Icon(
                 Icons.keyboard_arrow_left_outlined,
                 size: 20,

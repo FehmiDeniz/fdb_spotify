@@ -25,7 +25,7 @@ class _artistProfileScreenState extends State<artistProfileScreen> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const artistBannerWidget(),
+              artistBannerWidget(),
               const Center(child: artisInfoWidget()),
               Padding(
                 padding:
