@@ -48,9 +48,8 @@ class _musicScreenState extends State<musicScreen> {
                                 .artistAlbumData!.items![widget.root].name!,
                           ),
                           SizedBox(
-                            width: 400,
                             child: SizedBox(
-                              height: 35,
+                              height: 4.h,
                               child: Slider(
                                 activeColor: Color(0xff1ED760),
                                 inactiveColor: Color(0xffD9D9D9),
@@ -86,10 +85,9 @@ class _musicScreenState extends State<musicScreen> {
                                           margin: EdgeInsets.only(right: 18),
                                           child: Text(
                                             (calculateMS(value
-                                                    .playlistData!
-                                                    .tracks![widget.root]
-                                                    .durationMs!)
-                                                .toStringAsFixed(2)),
+                                                .playlistData!
+                                                .tracks![widget.root]
+                                                .durationMs!)),
                                             style: TextStyle(
                                                 color: Colors.black,
                                                 fontSize: 16.sp),
@@ -109,8 +107,13 @@ class _musicScreenState extends State<musicScreen> {
   }
 }
 
-double calculateMS(int ms) {
-  double songTime;
-  songTime = ((ms / 1000) / 60);
-  return songTime;
+String calculateMS(int ms) {
+  int min;
+  int seconds;
+  String songtime;
+  min = (ms / 1000 / 60).floor();
+  seconds = ((ms / 1000) % 60).floor();
+  songtime = "$min:$seconds";
+
+  return songtime;
 }

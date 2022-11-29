@@ -37,12 +37,12 @@ class _homeScreenState extends State<homeScreen> {
     "Artist",
     "Podcast"
   ]; //news video artist podcast
-  String id = "0TnOYISbd1XYRBk9myaseg";
+  String id = "1dGA9uX28qcaFQOvXZno42";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 10),
+        padding: EdgeInsets.symmetric(vertical: 2.h, horizontal: 2.w),
         child: SingleChildScrollView(
           child: Stack(
             children: [
@@ -51,10 +51,7 @@ class _homeScreenState extends State<homeScreen> {
                 height: 100.h,
                 child: Column(
                   children: [
-                    Container(
-                      margin: EdgeInsets.only(bottom: 20),
-                      child: const searchWidget(),
-                    ),
+                    const searchWidget(),
 
                     const bannerWidget(),
                     //News-Video-Artist-Podcast
@@ -67,8 +64,8 @@ class _homeScreenState extends State<homeScreen> {
                         shrinkWrap: true,
                         itemBuilder: (context, index) {
                           return Padding(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 20, vertical: 10),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 5.w, vertical: 2.h),
                             child: Text(
                               menuTexts[index],
                               style: TextStyle(fontSize: 18),
@@ -97,10 +94,6 @@ class _homeScreenState extends State<homeScreen> {
                                               .toString();
                                           print("ID: " + id);
                                           playlistData!.getPlaylistData(id);
-                                          // Provider.of<PlaylistProvider>(context,
-                                          //         listen: false)
-                                          //     .getPlaylistData(id);
-                                          // print(id);
                                         },
                                         child: AlbumWidget(
                                           albumImage:
@@ -168,8 +161,8 @@ class _homeScreenState extends State<homeScreen> {
               ),
               //billie image
               Positioned(
-                left: 47,
-                top: 17,
+                left: 5.h,
+                top: 3.3.h,
                 child: Image.asset(
                   "assets/im_billie.png",
                   fit: BoxFit.cover,

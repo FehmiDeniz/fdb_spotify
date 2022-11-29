@@ -43,10 +43,11 @@ class _songInfoWidgetState extends State<songInfoWidget> {
             children: [
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   SizedBox(
                     width: 75.w,
-                    height: 5.h,
+                    height: 3.2.h,
                     child: Text(
                       widget.songName,
                       maxLines: 2,

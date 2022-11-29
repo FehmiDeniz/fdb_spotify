@@ -91,7 +91,7 @@ class _profileScreenState extends State<profileScreen> {
                 ],
               ),
             ),
-            Positioned(child: Image.asset("assets/im_backEffect.png"))
+            Positioned(top: 30, child: Image.asset("assets/im_backEffect.png"))
           ],
         ),
       ),

@@ -22,16 +22,18 @@ class _profileTopWidgetState extends State<profileTopWidget> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      Container(
-                        width: 10.w,
-                        height: 10.w,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: Colors.grey.withOpacity(0.2),
-                        ),
-                        child: IconButton(
-                          onPressed: () {},
-                          icon: Icon(
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Container(
+                          width: 10.w,
+                          height: 10.w,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Colors.grey.withOpacity(0.2),
+                          ),
+                          child: Icon(
                             Icons.keyboard_arrow_left_outlined,
                             size: 20,
                           ),
