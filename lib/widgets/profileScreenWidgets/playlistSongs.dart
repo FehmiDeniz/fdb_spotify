@@ -1,15 +1,18 @@
+import 'package:fdb_spotify/screens/playlist_tracks_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class playlistSongWidget extends StatefulWidget {
   final String playlistName;
   final String playlistImage;
+  final String id;
   final String playlistOwner;
   const playlistSongWidget(
       {super.key,
       required this.playlistName,
       required this.playlistImage,
-      required this.playlistOwner});
+      required this.playlistOwner,
+      required this.id});
 
   @override
   State<playlistSongWidget> createState() => _playlistSongWidgetState();
@@ -23,13 +26,24 @@ class _playlistSongWidgetState extends State<playlistSongWidget> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          Container(
-            width: 15.w,
-            height: 15.w,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                image:
-                    DecorationImage(image: NetworkImage(widget.playlistImage))),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => PlaylistTracksScreen(
+                        playlistID: widget.id,
+                        playlistName: widget.playlistName),
+                  ));
+            },
+            child: Container(
+              width: 15.w,
+              height: 15.w,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  image: DecorationImage(
+                      image: NetworkImage(widget.playlistImage))),
+            ),
           ),
           SizedBox(
             width: 5.w,

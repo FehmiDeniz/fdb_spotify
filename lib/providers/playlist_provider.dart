@@ -1,4 +1,4 @@
-import 'package:fdb_spotify/models/playlist_model.dart';
+import 'package:fdb_spotify/models/playlist_album.dart';
 import 'package:fdb_spotify/models/releases_model.dart';
 import 'package:fdb_spotify/providers/releases_provider.dart';
 import 'package:fdb_spotify/service/playlist_service.dart';

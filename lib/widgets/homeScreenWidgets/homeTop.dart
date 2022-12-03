@@ -3,14 +3,14 @@ import 'package:fdb_spotify/service/releases_service.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-class searchWidget extends StatefulWidget {
-  const searchWidget({super.key});
+class HomeTop extends StatefulWidget {
+  const HomeTop({super.key});
 
   @override
-  State<searchWidget> createState() => _searchWidgetState();
+  State<HomeTop> createState() => _HomeTopState();
 }
 
-class _searchWidgetState extends State<searchWidget> {
+class _HomeTopState extends State<HomeTop> {
   @override
   Widget build(BuildContext context) {
     return Padding(

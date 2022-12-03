@@ -20,29 +20,15 @@ class _profileTopWidgetState extends State<profileTopWidget> {
             : Column(
                 children: [
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
-                        child: Container(
-                          width: 10.w,
-                          height: 10.w,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Colors.grey.withOpacity(0.2),
-                          ),
-                          child: Icon(
-                            Icons.keyboard_arrow_left_outlined,
-                            size: 20,
-                          ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          "Profile",
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.bold),
                         ),
-                      ),
-                      const Text(
-                        "Profile",
-                        style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold),
                       ),
                       Icon(Icons.more_vert)
                     ],

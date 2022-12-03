@@ -32,63 +32,67 @@ class _profileScreenState extends State<profileScreen> {
         padding: const EdgeInsets.symmetric(vertical: 25),
         child: Stack(
           children: [
-            SizedBox(
-              width: 100.w,
-              height: 100.h,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    width: 100.w,
-                    height: 35.h,
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(40),
-                            bottomRight: Radius.circular(40))),
-                    child: profileTopWidget(),
-                  ),
-                  SizedBox(
-                    height: 2.h,
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(left: 2.h),
-                    child: Text(
-                      "PUBLIC PLAYLIST",
-                      style: TextStyle(
-                          fontSize: 17.5.sp, fontWeight: FontWeight.w500),
+            SingleChildScrollView(
+              child: SizedBox(
+                width: 100.w,
+                height: 100.h,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      width: 100.w,
+                      height: 35.h,
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(40),
+                              bottomRight: Radius.circular(40))),
+                      child: profileTopWidget(),
                     ),
-                  ),
-                  Consumer(
-                    builder: (context, ProfilePlaylistProvider value, child) {
-                      return value.isProfilePlaylistLoaded == false
-                          ? Container(
-                              child: Text("LOADING"),
-                            )
-                          : SizedBox(
-                              width: double.infinity,
-                              height: 53.h,
-                              child: ListView.builder(
-                                padding: EdgeInsets.zero,
-                                scrollDirection: Axis.vertical,
-                                itemCount:
-                                    value.profilePlaylistData!.items!.length,
-                                itemBuilder: (context, index) {
-                                  return playlistSongWidget(
-                                    playlistName: value
-                                        .profilePlaylistData!.items![index].name
-                                        .toString(),
-                                    playlistImage: value.profilePlaylistData!
-                                        .items![index].images![0].url!,
-                                    playlistOwner: value.profilePlaylistData!
-                                        .items![index].owner!.displayName!,
-                                  );
-                                },
-                              ),
-                            );
-                    },
-                  )
-                ],
+                    SizedBox(
+                      height: 2.h,
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(left: 2.h),
+                      child: Text(
+                        "PUBLIC PLAYLIST",
+                        style: TextStyle(
+                            fontSize: 17.5.sp, fontWeight: FontWeight.w500),
+                      ),
+                    ),
+                    Consumer(
+                      builder: (context, ProfilePlaylistProvider value, child) {
+                        return value.isProfilePlaylistLoaded == false
+                            ? Container(
+                                child: Text("LOADING"),
+                              )
+                            : SizedBox(
+                                width: double.infinity,
+                                height: 53.h,
+                                child: ListView.builder(
+                                  padding: EdgeInsets.zero,
+                                  scrollDirection: Axis.vertical,
+                                  itemCount:
+                                      value.profilePlaylistData!.items!.length,
+                                  itemBuilder: (context, index) {
+                                    return playlistSongWidget(
+                                      playlistName: value.profilePlaylistData!
+                                          .items![index].name
+                                          .toString(),
+                                      playlistImage: value.profilePlaylistData!
+                                          .items![index].images![0].url!,
+                                      playlistOwner: value.profilePlaylistData!
+                                          .items![index].owner!.displayName!,
+                                      id: value.profilePlaylistData!
+                                          .items![index].id!,
+                                    );
+                                  },
+                                ),
+                              );
+                      },
+                    )
+                  ],
+                ),
               ),
             ),
             Positioned(top: 30, child: Image.asset("assets/im_backEffect.png"))

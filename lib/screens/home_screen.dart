@@ -1,11 +1,11 @@
-import 'package:fdb_spotify/models/playlist_model.dart';
+import 'package:fdb_spotify/models/playlist_album.dart';
 import 'package:fdb_spotify/providers/playlist_provider.dart';
 import 'package:fdb_spotify/providers/releases_provider.dart';
 import 'package:fdb_spotify/service/artist_album_service.dart';
 import 'package:fdb_spotify/service/releases_service.dart';
 import 'package:fdb_spotify/widgets/homeScreenWidgets/banner.dart';
 import 'package:fdb_spotify/widgets/homeScreenWidgets/playlist.dart';
-import 'package:fdb_spotify/widgets/homeScreenWidgets/searchTop.dart';
+import 'package:fdb_spotify/widgets/homeScreenWidgets/homeTop.dart';
 import 'package:fdb_spotify/widgets/homeScreenWidgets/album.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -51,14 +51,15 @@ class _homeScreenState extends State<homeScreen> {
                 height: 100.h,
                 child: Column(
                   children: [
-                    const searchWidget(),
+                    HomeTop(),
 
                     const bannerWidget(),
                     //News-Video-Artist-Podcast
                     SizedBox(
                       width: double.infinity,
-                      height: 6.h,
+                      height: 7.2.h,
                       child: ListView.builder(
+                        padding: EdgeInsets.zero,
                         scrollDirection: Axis.horizontal,
                         itemCount: 4,
                         shrinkWrap: true,
@@ -162,7 +163,7 @@ class _homeScreenState extends State<homeScreen> {
               //billie image
               Positioned(
                 left: 5.h,
-                top: 3.3.h,
+                top: 2.2.h,
                 child: Image.asset(
                   "assets/im_billie.png",
                   fit: BoxFit.cover,
