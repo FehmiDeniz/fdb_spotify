@@ -6,6 +6,7 @@ import 'package:fdb_spotify/providers/playlist_provider.dart';
 import 'package:fdb_spotify/providers/playlist_tracks_provider.dart';
 import 'package:fdb_spotify/providers/profile_playlist_provider.dart';
 import 'package:fdb_spotify/providers/releases_provider.dart';
+import 'package:fdb_spotify/providers/search_provider.dart';
 import 'package:fdb_spotify/providers/users_provider.dart';
 import 'package:fdb_spotify/screens/artist_profile_screen.dart';
 import 'package:fdb_spotify/screens/categories_playlist_screen.dart';
@@ -13,6 +14,7 @@ import 'package:fdb_spotify/screens/home_screen.dart';
 import 'package:fdb_spotify/screens/music_screen.dart';
 import 'package:fdb_spotify/screens/playlist_tracks_screen.dart';
 import 'package:fdb_spotify/screens/profile_screen.dart';
+import 'package:fdb_spotify/screens/categories_screen.dart';
 import 'package:fdb_spotify/screens/search_screen.dart';
 import 'package:fdb_spotify/widgets/homeScreenWidgets/banner.dart';
 import 'package:fdb_spotify/widgets/homeScreenWidgets/album.dart';
@@ -49,6 +51,9 @@ void main() {
     ),
     ChangeNotifierProvider(
       create: (context) => MainProvider(),
+    ),
+    ChangeNotifierProvider(
+      create: (context) => SearchProvider(),
     )
   ], child: MyApp()));
 }
@@ -83,7 +88,11 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final List<Widget> _select = [homeScreen(), SearchScreen(), profileScreen()];
+  final List<Widget> _select = [
+    homeScreen(),
+    CategoriesScreen(),
+    profileScreen()
+  ];
   @override
   Widget build(BuildContext context) {
     return Consumer(builder: (context, MainProvider value, child) {
