@@ -1,16 +1,10 @@
 # fdb_spotify
 
-A new Flutter project.
+A new Flutter project with Spotify Api.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+spotify token : BQDTponAe4SknQdxrBJ9M-_fUeWZXc3k5IpjADT2zzrnaJSIs_Qgl3UnyZb-FLZhEaNDmkEdNCdNXVZapZM4WP1IUuUnW5KxLPXUliLR_LCXapDskDLrFZSE6VCMNTSetlJVxbNaTtoW95SLKPRaGIrAIn7R6Oln0F4ltwE4pVnB4eFv4Qqf6CMplCjXOBaqRsaxEJcEAKqVJ1S6PPB9LLco4mZH-jBUVEHrkX7bPbOFZi2j1AHFxv_6LkY33MvZMAE3AkCsOb_3Zzcxr81LlI3h1vUjOEccFXhCfJVgNbJfk2Bo9A
 
-A few resources to get you started if this is your first Flutter project:
+You can change the token in 'key.dart' file by creating your own token at https://developer.spotify.com/console/
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![fdb_spotify](https://user-images.githubusercontent.com/70608758/205458092-92e157fd-c3c4-419e-a874-90ddcd4c6b54.gif)
